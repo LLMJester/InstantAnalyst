@@ -4,9 +4,6 @@
     "private": true,
     "scripts": {
       "start": "cd backend && node server.js",
-      "build": "cd frontend && npm run build",
-      "postinstall": "npm run install:backend && npm run install:frontend",
-      "install:backend": "cd backend && npm install",
-      "install:frontend": "cd frontend && npm install"
+      "build": "cd frontend && npm install && npm run build && cd ../backend && npm install"
     }
   }
