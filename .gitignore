@@ -4,27 +4,20 @@
 
 # Google Cloud credentials
 backend/gen-lang-client-0825075279-36a39b24cd8e.json
-*-credentials.json
-*service-account*.json
 
 # Dependencies
 node_modules/
-backend/node_modules/
-frontend/node_modules/
-
-# Build outputs
-dist/
-build/
+/node_modules
+*/node_modules/
 
 # Logs
 *.log
 npm-debug.log*
 
-# Editor directories and files
+# Editor directories
 .idea/
 .vscode/
-*.suo
 
-# OS generated files
+# OS files
 .DS_Store
 Thumbs.db
