@@ -58,7 +58,7 @@ async function extractRequirementsWithGemini(transcript) {
   
   try {
     const prompt = `
-    Analyze this transcript and extract any requirements mentioned.
+    Analyze this transcript and extract any software requirements mentioned.
     For each requirement, provide:
     1. A concise name (3-5 words max)
     2. The full description of the requirement
@@ -341,6 +341,18 @@ app.post('/api/transcribe-simple', (req, res) => {
     requirements: [extractedReq]
   });
 });
+
+// Serve static files from the frontend build folder if in production
+if (isProduction) {
+  const frontendPath = path.join(__dirname, '../frontend/dist');
+  console.log('Serving frontend from:', frontendPath);
+  app.use(express.static(frontendPath));
+  
+  // Handle SPA routing - serve index.html for any unmatched routes
+  app.get('*', (req, res) => {
+    res.sendFile(path.join(frontendPath, 'index.html'));
+  });
+}
 
 // Error handling middleware
 app.use((err, req, res, next) => {
